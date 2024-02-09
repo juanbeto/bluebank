@@ -34,7 +34,7 @@
                                 <div class="mt-2 col-md-1">
                                  </div>
                                 <div class="float-right">
-                                    <a class="btn btn-primary" href="{{ route('accounts.index') }}"> {{ __('Extract') }}</a>
+                                    <a class="btn btn-primary" href="#"> {{ __('Extract') }}</a>
                                 </div>
                             </div>
                         </div>
