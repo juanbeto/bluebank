@@ -46,7 +46,7 @@ class ReportsController extends Controller
             ->where('accounts.id_city', '!=', DB::raw('movements.id_city'))
             ->where('type_movements.name', 'retiro')
             ->groupBy('accounts.id_client','clients.first_name', 'clients.last_name', 'clients.number_document')
-            ->havingRaw('SUM(amount) > 50')
+            ->havingRaw('SUM(amount) >= 1000000')
             ->get();
 
         return view('reports.list_withdraw', compact('results'))->with('i', 0); 
