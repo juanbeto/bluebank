@@ -23,26 +23,26 @@ use App\Http\Controllers\ReportsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('reports', [ReportsController::class, 'index']);
-Route::get('reports/listtransaction', [ReportsController::class, 'listTransaction'])->name('reports.listtransaction');;
-Route::post('reports/listtransaction', [ReportsController::class, 'listTransaction'])->name('reports.listtransaction');;
-Route::get('reports/listwithdraw', [ReportsController::class, 'listWithdraw'])->name('reports.listwithdraw');;
+Route::get('reports', [ReportsController::class, 'index'])->name('reports')->middleware('auth');
+Route::get('reports/listtransaction', [ReportsController::class, 'listTransaction'])->name('reports.listtransaction')->middleware('auth');
+Route::post('reports/listtransaction', [ReportsController::class, 'listTransaction'])->name('reports.listtransaction')->middleware('auth');
+Route::get('reports/listwithdraw', [ReportsController::class, 'listWithdraw'])->name('reports.listwithdraw')->middleware('auth');
 
 
 
-Route::resource('clients', ClientController::class);
+Route::resource('clients', ClientController::class)->middleware('auth');
 
-Route::resource('accounts', AccountController::class);
+Route::resource('accounts', AccountController::class)->middleware('auth');
 
-Route::resource('movements', MovementController::class);
+Route::resource('movements', MovementController::class)->middleware('auth');
 
-Route::get('movements/create/{id}',  [MovementController::class, 'create']);
+Route::get('movements/create/{id}',  [MovementController::class, 'create'])->middleware('auth');
 
 

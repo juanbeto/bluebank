@@ -42,6 +42,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('accounts.index') }}">Accounts</a>
                         </li>
+                        <li class="nav-item dropdown" id="myDropdown">
+                            <a class="nav-link dropdown-toggle" href="{{ route('reports') }}" data-bs-toggle="dropdown">  Reports  </a>
+                            <ul class="dropdown-menu">
+                                <li> <a class="dropdown-item" href="{{ route('reports.listtransaction') }}"> List Transactions </a></li>
+                                <li><a class="dropdown-item" href="{{ route('reports.listwithdraw') }}"> List Withdraws </a></li>
+                            </ul>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
